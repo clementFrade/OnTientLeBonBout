@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="media">
+            <h2><span jhiTranslate="onTientLeBonBoutApp.media.detail.title">Media</span> {{media.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="onTientLeBonBoutApp.media.adresse">Adresse</span></dt>
+                <dd>
+                    <span>{{media.adresse}}</span>
+                </dd>
+                <dt><span jhiTranslate="onTientLeBonBoutApp.media.type">Type</span></dt>
+                <dd>
+                    <span>{{media.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="onTientLeBonBoutApp.media.nom">Nom</span></dt>
+                <dd>
+                    <span>{{media.nom}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/media', media.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

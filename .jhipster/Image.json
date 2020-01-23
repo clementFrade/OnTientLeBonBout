@@ -1,0 +1,15 @@
+{
+    "name": "Image",
+    "fields": [],
+    "relationships": [],
+    "changelogDate": "20200123153109",
+    "entityTableName": "image",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

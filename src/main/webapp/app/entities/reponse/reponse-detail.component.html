@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="reponse">
+            <h2><span jhiTranslate="onTientLeBonBoutApp.reponse.detail.title">Reponse</span> {{reponse.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="onTientLeBonBoutApp.reponse.intitule">Intitule</span></dt>
+                <dd>
+                    <span>{{reponse.intitule}}</span>
+                </dd>
+                <dt><span jhiTranslate="onTientLeBonBoutApp.reponse.valide">Valide</span></dt>
+                <dd>
+                    <span>{{reponse.valide}}</span>
+                </dd>
+                <dt><span jhiTranslate="onTientLeBonBoutApp.reponse.media">Media</span></dt>
+                <dd>
+                    <div *ngIf="reponse.media">
+                        <a [routerLink]="['/media', reponse.media?.id, 'view']">{{reponse.media?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="onTientLeBonBoutApp.reponse.invite">Invite</span></dt>
+                <dd>
+                    <div *ngIf="reponse.invite">
+                        <a [routerLink]="['/invite', reponse.invite?.id, 'view']">{{reponse.invite?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="onTientLeBonBoutApp.reponse.question">Question</span></dt>
+                <dd>
+                    <div *ngIf="reponse.question">
+                        <a [routerLink]="['/question', reponse.question?.id, 'view']">{{reponse.question?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/reponse', reponse.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

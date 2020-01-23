@@ -1,0 +1,55 @@
+{
+    "name": "Invite",
+    "fields": [
+        {
+            "fieldName": "nom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prenom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mdp",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "login",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "points",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "reponse",
+            "otherEntityRelationshipName": "invite",
+            "relationshipName": "reponses"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "questionnaire",
+            "otherEntityRelationshipName": "invites",
+            "relationshipName": "questionnaire",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200123153106",
+    "javadoc": "Task entity.\\n@author The JHipster team.",
+    "entityTableName": "invite",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

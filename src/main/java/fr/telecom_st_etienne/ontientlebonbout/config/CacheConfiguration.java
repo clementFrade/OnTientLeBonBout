@@ -45,6 +45,23 @@ public class CacheConfiguration {
             createCache(cm, fr.telecom_st_etienne.ontientlebonbout.domain.User.class.getName());
             createCache(cm, fr.telecom_st_etienne.ontientlebonbout.domain.Authority.class.getName());
             createCache(cm, fr.telecom_st_etienne.ontientlebonbout.domain.User.class.getName() + ".authorities");
+            createCache(cm, fr.telecom_st_etienne.ontientlebonbout.domain.Client.class.getName());
+            createCache(cm, fr.telecom_st_etienne.ontientlebonbout.domain.Client.class.getName() + ".questionnaires");
+            createCache(cm, fr.telecom_st_etienne.ontientlebonbout.domain.Question.class.getName());
+            createCache(cm, fr.telecom_st_etienne.ontientlebonbout.domain.Question.class.getName() + ".reponses");
+            createCache(cm, fr.telecom_st_etienne.ontientlebonbout.domain.Questionnaire.class.getName());
+            createCache(cm, fr.telecom_st_etienne.ontientlebonbout.domain.Questionnaire.class.getName() + ".invites");
+            createCache(cm, fr.telecom_st_etienne.ontientlebonbout.domain.Questionnaire.class.getName() + ".questions");
+            createCache(cm, fr.telecom_st_etienne.ontientlebonbout.domain.Theme.class.getName());
+            createCache(cm, fr.telecom_st_etienne.ontientlebonbout.domain.Reponse.class.getName());
+            createCache(cm, fr.telecom_st_etienne.ontientlebonbout.domain.Invite.class.getName());
+            createCache(cm, fr.telecom_st_etienne.ontientlebonbout.domain.Invite.class.getName() + ".reponses");
+            createCache(cm, fr.telecom_st_etienne.ontientlebonbout.domain.Media.class.getName());
+            createCache(cm, fr.telecom_st_etienne.ontientlebonbout.domain.MediaStatique.class.getName());
+            createCache(cm, fr.telecom_st_etienne.ontientlebonbout.domain.Image.class.getName());
+            createCache(cm, fr.telecom_st_etienne.ontientlebonbout.domain.MediaDynamique.class.getName());
+            createCache(cm, fr.telecom_st_etienne.ontientlebonbout.domain.Video.class.getName());
+            createCache(cm, fr.telecom_st_etienne.ontientlebonbout.domain.Musique.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

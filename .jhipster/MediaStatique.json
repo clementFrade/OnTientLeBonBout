@@ -1,0 +1,15 @@
+{
+    "name": "MediaStatique",
+    "fields": [],
+    "relationships": [],
+    "changelogDate": "20200123153108",
+    "entityTableName": "media_statique",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
