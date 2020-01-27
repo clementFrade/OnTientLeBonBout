@@ -6,6 +6,6 @@ services:
     #     - ~/volumes/jhipster/OnTientLeBonBout/postgresql/:/var/lib/postgresql/data/
     environment:
       - POSTGRES_USER=OnTientLeBonBout
-      - POSTGRES_PASSWORD=
+      - POSTGRES_PASSWORD=OnTientLeBonBout
     ports:
       - 5432:5432

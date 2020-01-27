@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="client">
+            <h2><span jhiTranslate="onTientLeBonBoutApp.client.detail.title">Client</span> {{client.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="onTientLeBonBoutApp.client.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{client.prenom}}</span>
+                </dd>
+                <dt><span jhiTranslate="onTientLeBonBoutApp.client.nom">Nom</span></dt>
+                <dd>
+                    <span>{{client.nom}}</span>
+                </dd>
+                <dt><span jhiTranslate="onTientLeBonBoutApp.client.mail">Mail</span></dt>
+                <dd>
+                    <span>{{client.mail}}</span>
+                </dd>
+                <dt><span jhiTranslate="onTientLeBonBoutApp.client.mdp">Mdp</span></dt>
+                <dd>
+                    <span>{{client.mdp}}</span>
+                </dd>
+                <dt><span jhiTranslate="onTientLeBonBoutApp.client.login">Login</span></dt>
+                <dd>
+                    <span>{{client.login}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/client', client.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
