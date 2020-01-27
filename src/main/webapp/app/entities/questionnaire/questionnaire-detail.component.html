@@ -5,10 +5,10 @@
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="onTientLeBonBoutApp.questionnaire.client">Client</span></dt>
+                <dt><span jhiTranslate="onTientLeBonBoutApp.questionnaire.questions">Questions</span></dt>
                 <dd>
-                    <div *ngIf="questionnaire.client">
-                        <a [routerLink]="['/client', questionnaire.client?.id, 'view']">{{questionnaire.client?.id}}</a>
+                     <div *ngFor="let item of questionnaire.questions">
+                        <a [routerLink]="['/question', item?.intitule, 'view']">{{item?.intitule}}</a>
                     </div>
                 </dd>
             </dl>
