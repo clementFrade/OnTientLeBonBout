@@ -9,6 +9,10 @@
                 <dd>
                      <div *ngFor="let item of questionnaire.questions">
                         <a [routerLink]="['/question', item?.intitule, 'view']">{{item?.intitule}}</a>
+                        	<div *ngFor="let i of item.reponses">
+                        		<a [routerLink]="['/reponse', i?.intitule, 'view']">{{i?.intitule}}</a>
+                        	</div>
+                        <IMG src=item.media?.adresse border="0" alt="Image" >
                     </div>
                 </dd>
             </dl>

@@ -34,7 +34,7 @@ public class Question implements Serializable {
     @JoinColumn(unique = true)
     private Media media;
 
-    @OneToMany(mappedBy = "question")
+    @OneToMany(mappedBy = "question",fetch=FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Reponse> reponses = new HashSet<>();
 
