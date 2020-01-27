@@ -5,6 +5,8 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.io.Serializable;
@@ -36,9 +38,11 @@ public class Invite implements Serializable {
     private String prenom;
 
     @Column(name = "mail")
+    @Email
     private String mail;
 
     @Column(name = "mdp")
+    @Size(min=5, message="Le mot de passe doit contenir au minimum 5 caractères")
     private String mdp;
 
     @Column(name = "login")
