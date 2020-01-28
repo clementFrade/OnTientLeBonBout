@@ -1,0 +1,22 @@
+{
+  "onTientLeBonBoutApp": {
+    "mediaDynamique": {
+      "home": {
+        "title": "Media Dynamiques",
+        "createLabel": "Create a new Media Dynamique",
+        "createOrEditLabel": "Create or edit a Media Dynamique",
+        "notFound": "No Media Dynamique found"
+      },
+      "created": "A new Media Dynamique is created with identifier {{ param }}",
+      "updated": "A Media Dynamique is updated with identifier {{ param }}",
+      "deleted": "A Media Dynamique is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Media Dynamique {{ id }}?"
+      },
+      "detail": {
+        "title": "Media Dynamique"
+      },
+      "dureeSeconde": "Duree Seconde"
+    }
+  }
+}

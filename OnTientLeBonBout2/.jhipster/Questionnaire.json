@@ -1,0 +1,33 @@
+{
+    "name": "Questionnaire",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipName": "client",
+            "otherEntityName": "client",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "invite",
+            "otherEntityRelationshipName": "questionnaire",
+            "relationshipName": "invites"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "question",
+            "otherEntityRelationshipName": "questionnaire",
+            "relationshipName": "questions"
+        }
+    ],
+    "changelogDate": "20200128135844",
+    "entityTableName": "questionnaire",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

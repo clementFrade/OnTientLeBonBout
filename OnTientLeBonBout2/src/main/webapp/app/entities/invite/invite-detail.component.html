@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="invite">
+            <h2><span jhiTranslate="onTientLeBonBoutApp.invite.detail.title">Invite</span> {{invite.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="onTientLeBonBoutApp.invite.nom">Nom</span></dt>
+                <dd>
+                    <span>{{invite.nom}}</span>
+                </dd>
+                <dt><span jhiTranslate="onTientLeBonBoutApp.invite.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{invite.prenom}}</span>
+                </dd>
+                <dt><span jhiTranslate="onTientLeBonBoutApp.invite.mail">Mail</span></dt>
+                <dd>
+                    <span>{{invite.mail}}</span>
+                </dd>
+                <dt><span jhiTranslate="onTientLeBonBoutApp.invite.mdp">Mdp</span></dt>
+                <dd>
+                    <span>{{invite.mdp}}</span>
+                </dd>
+                <dt><span jhiTranslate="onTientLeBonBoutApp.invite.login">Login</span></dt>
+                <dd>
+                    <span>{{invite.login}}</span>
+                </dd>
+                <dt><span jhiTranslate="onTientLeBonBoutApp.invite.points">Points</span></dt>
+                <dd>
+                    <span>{{invite.points}}</span>
+                </dd>
+                <dt><span jhiTranslate="onTientLeBonBoutApp.invite.questionnaire">Questionnaire</span></dt>
+                <dd>
+                    <div *ngIf="invite.questionnaire">
+                        <a [routerLink]="['/questionnaire', invite.questionnaire?.id, 'view']">{{invite.questionnaire?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/invite', invite.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

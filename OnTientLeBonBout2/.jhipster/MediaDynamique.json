@@ -1,0 +1,19 @@
+{
+    "name": "MediaDynamique",
+    "fields": [
+        {
+            "fieldName": "dureeSeconde",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200128135851",
+    "entityTableName": "media_dynamique",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

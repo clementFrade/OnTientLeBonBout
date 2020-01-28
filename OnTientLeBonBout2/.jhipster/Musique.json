@@ -1,0 +1,19 @@
+{
+    "name": "Musique",
+    "fields": [
+        {
+            "fieldName": "artiste",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200128135853",
+    "entityTableName": "musique",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

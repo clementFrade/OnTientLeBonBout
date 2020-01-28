@@ -1,0 +1,29 @@
+{
+  "onTientLeBonBoutApp": {
+    "invite": {
+      "home": {
+        "title": "Invites",
+        "createLabel": "Créer un nouveau Invite",
+        "createOrEditLabel": "Créer ou éditer un Invite",
+        "notFound": "Aucun Invite trouvé"
+      },
+      "created": "Un nouveau Invite a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Invite avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Invite avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Invite {{ id }} ?"
+      },
+      "detail": {
+        "title": "Invite"
+      },
+      "nom": "Nom",
+      "prenom": "Prenom",
+      "mail": "Mail",
+      "mdp": "Mdp",
+      "login": "Login",
+      "points": "Points",
+      "questionnaire": "Questionnaire",
+      "reponses": "Reponses"
+    }
+  }
+}

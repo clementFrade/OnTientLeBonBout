@@ -1,0 +1,22 @@
+{
+  "onTientLeBonBoutApp": {
+    "musique": {
+      "home": {
+        "title": "Musiques",
+        "createLabel": "Créer un nouveau Musique",
+        "createOrEditLabel": "Créer ou éditer un Musique",
+        "notFound": "Aucun Musique trouvé"
+      },
+      "created": "Un nouveau Musique a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Musique avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Musique avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Musique {{ id }} ?"
+      },
+      "detail": {
+        "title": "Musique"
+      },
+      "artiste": "Artiste"
+    }
+  }
+}

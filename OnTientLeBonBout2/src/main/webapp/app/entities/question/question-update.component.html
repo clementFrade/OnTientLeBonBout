@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-question-heading" jhiTranslate="onTientLeBonBoutApp.question.home.createOrEditLabel">Create or edit a Question</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="onTientLeBonBoutApp.question.intitule" for="field_intitule">Intitule</label>
+                    <input type="text" class="form-control" name="intitule" id="field_intitule"
+                           formControlName="intitule"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="onTientLeBonBoutApp.question.media" for="field_media">Media</label>
+                    <select class="form-control" id="field_media" name="media" formControlName="media">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="mediaOption.id === editForm.get('media').value?.id ? editForm.get('media').value : mediaOption" *ngFor="let mediaOption of media; trackBy: trackMediaById">{{mediaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="onTientLeBonBoutApp.question.theme" for="field_theme">Theme</label>
+                    <select class="form-control" id="field_theme" name="theme" formControlName="theme">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="themeOption.id === editForm.get('theme').value?.id ? editForm.get('theme').value : themeOption" *ngFor="let themeOption of themes; trackBy: trackThemeById">{{themeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="onTientLeBonBoutApp.question.questionnaire" for="field_questionnaire">Questionnaire</label>
+                    <select class="form-control" id="field_questionnaire" name="questionnaire" formControlName="questionnaire">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="questionnaireOption.id === editForm.get('questionnaire').value?.id ? editForm.get('questionnaire').value : questionnaireOption" *ngFor="let questionnaireOption of questionnaires; trackBy: trackQuestionnaireById">{{questionnaireOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

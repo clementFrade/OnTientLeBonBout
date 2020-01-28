@@ -1,0 +1,95 @@
+entity Client {
+	id Long
+    prenom String
+    nom String
+    mail String
+    mdp String
+    login String
+}
+entity Question {
+	id Long
+    intitule String
+}
+entity Questionnaire {
+	id Long
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Theme {
+	id Long
+    intitule String
+}
+
+entity Reponse {
+	id Long
+    intitule String
+    valide Boolean
+}
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+entity Invite {
+	id Long
+    nom String
+    prenom String
+    mail String
+    mdp String
+    login String
+    points Integer
+}
+
+/**
+ * The Employee entity.
+ */
+entity Media {
+
+	id Long
+    adresse String
+    type String
+    nom String
+}
+
+entity MediaStatique {
+	id Long
+}
+entity Image {
+	id Long
+}
+entity MediaDynamique {
+	id Long
+    dureeSeconde Integer
+}
+entity Video {
+	id Long
+}
+entity Musique {
+	id Long
+    artiste String
+}
+
+
+relationship OneToMany {
+	Client{questionnaires} to Questionnaire
+}
+
+relationship OneToMany {
+	 Questionnaire{invites} to Invite
+     Questionnaire{questions} to Question
+}
+
+
+relationship ManyToOne {
+	Question{theme} to Theme
+}
+relationship OneToMany {
+    Invite{reponses} to Reponse
+    Question{reponses} to Reponse
+}
+relationship OneToOne {
+	Reponse{media} to Media
+    Question{media} to Media
+}
+

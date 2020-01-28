@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "fr.telecom_st_etienne.ontientlebonbout",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.1.2",
+    "applicationType": "monolith",
+    "baseName": "OnTientLeBonBout",
+    "packageName": "fr.telecom_st_etienne.ontientlebonbout",
+    "packageFolder": "fr/telecom_st_etienne/ontientlebonbout",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NDcyNTFjYzg1MTdjMWZiZjM1MjEyOTEzODk1NmI1MjhjMDQ0MDhmZWRkNjgyYTVhNWQ3MGU4YTBiNDgzYjI0M2Y4MWIyM2Q3ZjQzY2E3NGZkZGU4MmRiM2ViMGRiY2JmMDFkNWQ1Zjg0ZTBlMTM3MTJjNTA1NjkxMGY3YjdjMWM=",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "testFrameworks": ["protractor"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": ["en", "fr"]
+  }
+}

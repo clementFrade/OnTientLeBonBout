@@ -1,0 +1,22 @@
+{
+  "onTientLeBonBoutApp": {
+    "mediaDynamique": {
+      "home": {
+        "title": "MediaDynamiques",
+        "createLabel": "Créer un nouveau Media Dynamique",
+        "createOrEditLabel": "Créer ou éditer un Media Dynamique",
+        "notFound": "Aucun Media Dynamique trouvé"
+      },
+      "created": "Un nouveau Media Dynamique a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Media Dynamique avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Media Dynamique avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Media Dynamique {{ id }} ?"
+      },
+      "detail": {
+        "title": "Media Dynamique"
+      },
+      "dureeSeconde": "Duree Seconde"
+    }
+  }
+}

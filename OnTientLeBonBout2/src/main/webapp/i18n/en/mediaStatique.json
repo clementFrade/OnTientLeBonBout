@@ -1,0 +1,21 @@
+{
+  "onTientLeBonBoutApp": {
+    "mediaStatique": {
+      "home": {
+        "title": "Media Statiques",
+        "createLabel": "Create a new Media Statique",
+        "createOrEditLabel": "Create or edit a Media Statique",
+        "notFound": "No Media Statique found"
+      },
+      "created": "A new Media Statique is created with identifier {{ param }}",
+      "updated": "A Media Statique is updated with identifier {{ param }}",
+      "deleted": "A Media Statique is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Media Statique {{ id }}?"
+      },
+      "detail": {
+        "title": "Media Statique"
+      }
+    }
+  }
+}
