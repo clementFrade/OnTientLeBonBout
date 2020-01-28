@@ -18,18 +18,19 @@ import java.util.Set;
  */
 @ApiModel(description = "Task entity.\n@author The JHipster team.")
 @Entity
+//@Inheritance(strategy=InheritanceType.SINGLE_TABLE)		
 @Table(name = "invite")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @org.springframework.data.elasticsearch.annotations.Document(indexName = "invite")
-public class Invite implements Serializable {
+public class Invite extends User implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+/*
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
     @SequenceGenerator(name = "sequenceGenerator")
     @org.springframework.data.elasticsearch.annotations.Field(type = FieldType.Keyword)
-    private Long id;
+    private Long id;*/
 
     @Column(name = "nom")
     private String nom;
@@ -42,7 +43,7 @@ public class Invite implements Serializable {
     private String mail;
 
     @Column(name = "mdp")
-    @Size(min=5, message="Le mot de passe doit contenir au minimum 5 caractères")
+    //@Size(min=5, message="Le mot de passe doit contenir au minimum 5 caractères")
     private String mdp;
 
     @Column(name = "login")
@@ -60,13 +61,13 @@ public class Invite implements Serializable {
     private Questionnaire questionnaire;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public Long getId() {
+   /* public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
+    }*/
 
     public String getNom() {
         return nom;
@@ -184,7 +185,7 @@ public class Invite implements Serializable {
         this.questionnaire = questionnaire;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
-
+/*
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -195,7 +196,7 @@ public class Invite implements Serializable {
         }
         return id != null && id.equals(((Invite) o).id);
     }
-
+*/
     @Override
     public int hashCode() {
         return 31;
