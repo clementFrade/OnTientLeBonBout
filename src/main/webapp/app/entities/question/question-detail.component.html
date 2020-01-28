@@ -12,19 +12,19 @@
                 <dt><span jhiTranslate="onTientLeBonBoutApp.question.media">Media</span></dt>
                 <dd>
                     <div *ngIf="question.media">
-                        <a [routerLink]="['/media', question.media?.id, 'view']">{{question.media?.id}}</a>
+                        <a [routerLink]="['/media', question.media?.nom, 'view']">{{question.media?.nom}}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="onTientLeBonBoutApp.question.theme">Theme</span></dt>
                 <dd>
                     <div *ngIf="question.theme">
-                        <a [routerLink]="['/theme', question.theme?.id, 'view']">{{question.theme?.id}}</a>
+                        <a [routerLink]="['/theme', question.theme?.intitule, 'view']">{{question.theme?.intitule}}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="onTientLeBonBoutApp.question.questionnaire">Questionnaire</span></dt>
                 <dd>
                     <div *ngIf="question.questionnaire">
-                        <a [routerLink]="['/questionnaire', question.questionnaire?.id, 'view']">{{question.questionnaire?.id}}</a>
+                        <a [routerLink]="['/questionnaire', question.questionnaire?.intitule, 'view']">{{question.questionnaire?.intitule}}</a>
                     </div>
                 </dd>
             </dl>

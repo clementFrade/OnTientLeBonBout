@@ -9,10 +9,12 @@
                 <dd>
                      <div *ngFor="let item of questionnaire.questions">
                         <a [routerLink]="['/question', item?.intitule, 'view']">{{item?.intitule}}</a>
+                        <div>
+                        <img src={{item.media?.adresse}}>
+                        </div>
                         	<div *ngFor="let i of item.reponses">
-                        		<a [routerLink]="['/reponse', i?.intitule, 'view']">{{i?.intitule}}</a>
+                        		<input type="checkbox" id="reponse" name="reponses" [routerLink]="['/reponse', i?.intitule, 'view']">{{i?.intitule}}
                         	</div>
-                        <IMG src=item.media?.adresse border="0" alt="Image" >
                     </div>
                 </dd>
             </dl>
