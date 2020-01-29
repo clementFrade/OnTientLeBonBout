@@ -27,7 +27,7 @@ public class Question implements Serializable {
     @Column(name = "intitule")
     private String intitule;
 
-    @OneToOne
+    @OneToOne(fetch=FetchType.EAGER)
     @JoinColumn(unique = true)
     private Media media;
 

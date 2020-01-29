@@ -5,10 +5,16 @@
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="onTientLeBonBoutApp.questionnaire.client">Client</span></dt>
+                <dt><span jhiTranslate="onTientLeBonBoutApp.questionnaire.questions">Questions</span></dt>
                 <dd>
-                    <div *ngIf="questionnaire.client">
-                        <a [routerLink]="['/client', questionnaire.client?.id, 'view']">{{questionnaire.client?.id}}</a>
+                     <div *ngFor="let item of questionnaire.questions">
+                        <a [routerLink]="['/question', item?.intitule, 'view']">{{item?.intitule}}</a>
+                        <div>
+                        <img src={{item.media?.adresse}}>
+                        </div>
+                        	<div *ngFor="let i of item.reponses">
+                        		<input type="checkbox" id="reponse" name="reponses" [routerLink]="['/reponse', i?.intitule, 'view']">{{i?.intitule}}
+                        	</div>
                     </div>
                 </dd>
             </dl>

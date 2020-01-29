@@ -5,128 +5,50 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Task entity.
- * @author The JHipster team.
+ * Task entity.\n@author The JHipster team.
  */
-@ApiModel(description = "Task entity. @author The JHipster team.")
+@ApiModel(description = "Task entity.\n@author The JHipster team.")
 @Entity
+//@Inheritance(strategy=InheritanceType.SINGLE_TABLE)		
 @Table(name = "invite")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class Invite implements Serializable {
+public class Invite extends User implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+/*
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
     @SequenceGenerator(name = "sequenceGenerator")
-    private Long id;
-
-    @Column(name = "nom")
-    private String nom;
-
-    @Column(name = "prenom")
-    private String prenom;
-
-    @Column(name = "mail")
-    private String mail;
-
-    @Column(name = "mdp")
-    private String mdp;
-
-    @Column(name = "login")
-    private String login;
+    @org.springframework.data.elasticsearch.annotations.Field(type = FieldType.Keyword)
+    private Long id;*/
 
     @Column(name = "points")
     private Integer points;
-
-    @ManyToOne
-    @JsonIgnoreProperties("invites")
-    private Questionnaire questionnaire;
 
     @OneToMany(mappedBy = "invite")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Reponse> reponses = new HashSet<>();
 
+    @ManyToOne
+    @JsonIgnoreProperties("invites")
+    private Questionnaire questionnaire;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public Long getId() {
+   /* public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public Invite nom(String nom) {
-        this.nom = nom;
-        return this;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public Invite prenom(String prenom) {
-        this.prenom = prenom;
-        return this;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public Invite mail(String mail) {
-        this.mail = mail;
-        return this;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public String getMdp() {
-        return mdp;
-    }
-
-    public Invite mdp(String mdp) {
-        this.mdp = mdp;
-        return this;
-    }
-
-    public void setMdp(String mdp) {
-        this.mdp = mdp;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public Invite login(String login) {
-        this.login = login;
-        return this;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
+    }*/
     public Integer getPoints() {
         return points;
     }
@@ -138,19 +60,6 @@ public class Invite implements Serializable {
 
     public void setPoints(Integer points) {
         this.points = points;
-    }
-
-    public Questionnaire getQuestionnaire() {
-        return questionnaire;
-    }
-
-    public Invite questionnaire(Questionnaire questionnaire) {
-        this.questionnaire = questionnaire;
-        return this;
-    }
-
-    public void setQuestionnaire(Questionnaire questionnaire) {
-        this.questionnaire = questionnaire;
     }
 
     public Set<Reponse> getReponses() {
@@ -177,8 +86,21 @@ public class Invite implements Serializable {
     public void setReponses(Set<Reponse> reponses) {
         this.reponses = reponses;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
+    public Questionnaire getQuestionnaire() {
+        return questionnaire;
+    }
+
+    public Invite questionnaire(Questionnaire questionnaire) {
+        this.questionnaire = questionnaire;
+        return this;
+    }
+
+    public void setQuestionnaire(Questionnaire questionnaire) {
+        this.questionnaire = questionnaire;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+/*
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -189,7 +111,7 @@ public class Invite implements Serializable {
         }
         return id != null && id.equals(((Invite) o).id);
     }
-
+*/
     @Override
     public int hashCode() {
         return 31;
@@ -198,13 +120,7 @@ public class Invite implements Serializable {
     @Override
     public String toString() {
         return "Invite{" +
-            "id=" + getId() +
-            ", nom='" + getNom() + "'" +
-            ", prenom='" + getPrenom() + "'" +
-            ", mail='" + getMail() + "'" +
-            ", mdp='" + getMdp() + "'" +
-            ", login='" + getLogin() + "'" +
-            ", points=" + getPoints() +
+            "points=" + getPoints() +
             "}";
     }
 }

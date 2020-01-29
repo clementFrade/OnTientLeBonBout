@@ -32,7 +32,7 @@ public class Questionnaire implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Invite> invites = new HashSet<>();
 
-    @OneToMany(mappedBy = "questionnaire")
+    @OneToMany(mappedBy = "questionnaire", fetch=FetchType.EAGER)   
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Question> questions = new HashSet<>();
 
