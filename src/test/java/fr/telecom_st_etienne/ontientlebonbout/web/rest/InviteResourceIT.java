@@ -104,13 +104,13 @@ public class InviteResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Invite createEntity(EntityManager em) {
-        Invite invite = new Invite()
-            .nom(DEFAULT_NOM)
-            .prenom(DEFAULT_PRENOM)
-            .mail(DEFAULT_MAIL)
-            .mdp(DEFAULT_MDP)
-            .login(DEFAULT_LOGIN)
-            .points(DEFAULT_POINTS);
+        Invite invite = new Invite();
+        invite.setLastName(DEFAULT_NOM);
+        invite.setFirstName(DEFAULT_PRENOM);
+        invite.setEmail(DEFAULT_MAIL);
+        invite.setPassword(DEFAULT_MDP);
+        invite.setLogin(DEFAULT_LOGIN);
+        invite.points(DEFAULT_POINTS);
         return invite;
     }
     /**
@@ -120,13 +120,13 @@ public class InviteResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Invite createUpdatedEntity(EntityManager em) {
-        Invite invite = new Invite()
-            .nom(UPDATED_NOM)
-            .prenom(UPDATED_PRENOM)
-            .mail(UPDATED_MAIL)
-            .mdp(UPDATED_MDP)
-            .login(UPDATED_LOGIN)
-            .points(UPDATED_POINTS);
+        Invite invite = new Invite();
+            invite.setLastName(UPDATED_NOM);
+            invite.setFirstName(UPDATED_PRENOM);
+            invite.setEmail(UPDATED_MAIL);
+            invite.setPassword(UPDATED_MDP);
+            invite.setLogin(UPDATED_LOGIN);
+            invite.points(UPDATED_POINTS);
         return invite;
     }
 
@@ -150,10 +150,10 @@ public class InviteResourceIT {
         List<Invite> inviteList = inviteRepository.findAll();
         assertThat(inviteList).hasSize(databaseSizeBeforeCreate + 1);
         Invite testInvite = inviteList.get(inviteList.size() - 1);
-        assertThat(testInvite.getNom()).isEqualTo(DEFAULT_NOM);
-        assertThat(testInvite.getPrenom()).isEqualTo(DEFAULT_PRENOM);
-        assertThat(testInvite.getMail()).isEqualTo(DEFAULT_MAIL);
-        assertThat(testInvite.getMdp()).isEqualTo(DEFAULT_MDP);
+        assertThat(testInvite.getLastName()).isEqualTo(DEFAULT_NOM);
+        assertThat(testInvite.getFirstName()).isEqualTo(DEFAULT_PRENOM);
+        assertThat(testInvite.getEmail()).isEqualTo(DEFAULT_MAIL);
+        assertThat(testInvite.getPassword()).isEqualTo(DEFAULT_MDP);
         assertThat(testInvite.getLogin()).isEqualTo(DEFAULT_LOGIN);
         assertThat(testInvite.getPoints()).isEqualTo(DEFAULT_POINTS);
 
@@ -242,13 +242,12 @@ public class InviteResourceIT {
         Invite updatedInvite = inviteRepository.findById(invite.getId()).get();
         // Disconnect from session so that the updates on updatedInvite are not directly saved in db
         em.detach(updatedInvite);
-        updatedInvite
-            .nom(UPDATED_NOM)
-            .prenom(UPDATED_PRENOM)
-            .mail(UPDATED_MAIL)
-            .mdp(UPDATED_MDP)
-            .login(UPDATED_LOGIN)
-            .points(UPDATED_POINTS);
+        updatedInvite.setLastName(UPDATED_NOM);
+        updatedInvite.setFirstName(UPDATED_PRENOM);
+        updatedInvite.setEmail(UPDATED_MAIL);
+        updatedInvite.setPassword(UPDATED_MDP);
+        updatedInvite.setLogin(UPDATED_LOGIN);
+        updatedInvite.points(UPDATED_POINTS);
 
         restInviteMockMvc.perform(put("/api/invites")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -259,10 +258,10 @@ public class InviteResourceIT {
         List<Invite> inviteList = inviteRepository.findAll();
         assertThat(inviteList).hasSize(databaseSizeBeforeUpdate);
         Invite testInvite = inviteList.get(inviteList.size() - 1);
-        assertThat(testInvite.getNom()).isEqualTo(UPDATED_NOM);
-        assertThat(testInvite.getPrenom()).isEqualTo(UPDATED_PRENOM);
-        assertThat(testInvite.getMail()).isEqualTo(UPDATED_MAIL);
-        assertThat(testInvite.getMdp()).isEqualTo(UPDATED_MDP);
+        assertThat(testInvite.getLastName()).isEqualTo(UPDATED_NOM);
+        assertThat(testInvite.getFirstName()).isEqualTo(UPDATED_PRENOM);
+        assertThat(testInvite.getEmail()).isEqualTo(UPDATED_MAIL);
+        assertThat(testInvite.getPassword()).isEqualTo(UPDATED_MDP);
         assertThat(testInvite.getLogin()).isEqualTo(UPDATED_LOGIN);
         assertThat(testInvite.getPoints()).isEqualTo(UPDATED_POINTS);
 
@@ -324,10 +323,10 @@ public class InviteResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(invite.getId().intValue())))
-            .andExpect(jsonPath("$.[*].nom").value(hasItem(DEFAULT_NOM)))
-            .andExpect(jsonPath("$.[*].prenom").value(hasItem(DEFAULT_PRENOM)))
-            .andExpect(jsonPath("$.[*].mail").value(hasItem(DEFAULT_MAIL)))
-            .andExpect(jsonPath("$.[*].mdp").value(hasItem(DEFAULT_MDP)))
+            .andExpect(jsonPath("$.[*].lastName").value(hasItem(DEFAULT_NOM)))
+            .andExpect(jsonPath("$.[*].firstName").value(hasItem(DEFAULT_PRENOM)))
+            .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_MAIL)))
+            .andExpect(jsonPath("$.[*].password").value(hasItem(DEFAULT_MDP)))
             .andExpect(jsonPath("$.[*].login").value(hasItem(DEFAULT_LOGIN)))
             .andExpect(jsonPath("$.[*].points").value(hasItem(DEFAULT_POINTS)));
     }

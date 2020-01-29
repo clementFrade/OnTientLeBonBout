@@ -101,12 +101,12 @@ public class ClientResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Client createEntity(EntityManager em) {
-        Client client = new Client()
-            .prenom(DEFAULT_PRENOM)
-            .nom(DEFAULT_NOM)
-            .mail(DEFAULT_MAIL)
-            .mdp(DEFAULT_MDP)
-            .login(DEFAULT_LOGIN);
+        Client client = new Client();
+                client.setLastName(DEFAULT_NOM);
+                client.setFirstName(DEFAULT_PRENOM);
+                client.setEmail(DEFAULT_MAIL);
+                client.setPassword(DEFAULT_MDP);
+                client.setLogin(DEFAULT_LOGIN);
         return client;
     }
     /**
@@ -116,12 +116,12 @@ public class ClientResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Client createUpdatedEntity(EntityManager em) {
-        Client client = new Client()
-            .prenom(UPDATED_PRENOM)
-            .nom(UPDATED_NOM)
-            .mail(UPDATED_MAIL)
-            .mdp(UPDATED_MDP)
-            .login(UPDATED_LOGIN);
+        Client client = new Client();
+            client.setLastName(UPDATED_NOM);
+            client.setFirstName(UPDATED_PRENOM);
+            client.setEmail(UPDATED_MAIL);
+            client.setPassword(UPDATED_MDP);
+            client.setLogin(UPDATED_LOGIN);
         return client;
     }
 
@@ -145,10 +145,10 @@ public class ClientResourceIT {
         List<Client> clientList = clientRepository.findAll();
         assertThat(clientList).hasSize(databaseSizeBeforeCreate + 1);
         Client testClient = clientList.get(clientList.size() - 1);
-        assertThat(testClient.getPrenom()).isEqualTo(DEFAULT_PRENOM);
-        assertThat(testClient.getNom()).isEqualTo(DEFAULT_NOM);
-        assertThat(testClient.getMail()).isEqualTo(DEFAULT_MAIL);
-        assertThat(testClient.getMdp()).isEqualTo(DEFAULT_MDP);
+        assertThat(testClient.getFirstName()).isEqualTo(DEFAULT_PRENOM);
+        assertThat(testClient.getLastName()).isEqualTo(DEFAULT_NOM);
+        assertThat(testClient.getEmail()).isEqualTo(DEFAULT_MAIL);
+        assertThat(testClient.getPassword()).isEqualTo(DEFAULT_MDP);
         assertThat(testClient.getLogin()).isEqualTo(DEFAULT_LOGIN);
 
         // Validate the Client in Elasticsearch
@@ -234,12 +234,11 @@ public class ClientResourceIT {
         Client updatedClient = clientRepository.findById(client.getId()).get();
         // Disconnect from session so that the updates on updatedClient are not directly saved in db
         em.detach(updatedClient);
-        updatedClient
-            .prenom(UPDATED_PRENOM)
-            .nom(UPDATED_NOM)
-            .mail(UPDATED_MAIL)
-            .mdp(UPDATED_MDP)
-            .login(UPDATED_LOGIN);
+        updatedClient.setLastName(UPDATED_NOM);
+        updatedClient.setFirstName(UPDATED_PRENOM);
+        updatedClient.setEmail(UPDATED_MAIL);
+        updatedClient.setPassword(UPDATED_MDP);
+        updatedClient.setLogin(UPDATED_LOGIN);
 
         restClientMockMvc.perform(put("/api/clients")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -250,10 +249,10 @@ public class ClientResourceIT {
         List<Client> clientList = clientRepository.findAll();
         assertThat(clientList).hasSize(databaseSizeBeforeUpdate);
         Client testClient = clientList.get(clientList.size() - 1);
-        assertThat(testClient.getPrenom()).isEqualTo(UPDATED_PRENOM);
-        assertThat(testClient.getNom()).isEqualTo(UPDATED_NOM);
-        assertThat(testClient.getMail()).isEqualTo(UPDATED_MAIL);
-        assertThat(testClient.getMdp()).isEqualTo(UPDATED_MDP);
+        assertThat(testClient.getFirstName()).isEqualTo(UPDATED_PRENOM);
+        assertThat(testClient.getLastName()).isEqualTo(UPDATED_NOM);
+        assertThat(testClient.getEmail()).isEqualTo(UPDATED_MAIL);
+        assertThat(testClient.getPassword()).isEqualTo(UPDATED_MDP);
         assertThat(testClient.getLogin()).isEqualTo(UPDATED_LOGIN);
 
         // Validate the Client in Elasticsearch
@@ -314,10 +313,10 @@ public class ClientResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(client.getId().intValue())))
-            .andExpect(jsonPath("$.[*].prenom").value(hasItem(DEFAULT_PRENOM)))
-            .andExpect(jsonPath("$.[*].nom").value(hasItem(DEFAULT_NOM)))
-            .andExpect(jsonPath("$.[*].mail").value(hasItem(DEFAULT_MAIL)))
-            .andExpect(jsonPath("$.[*].mdp").value(hasItem(DEFAULT_MDP)))
+            .andExpect(jsonPath("$.[*].firstName").value(hasItem(DEFAULT_PRENOM)))
+            .andExpect(jsonPath("$.[*].lastName").value(hasItem(DEFAULT_NOM)))
+            .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_MAIL)))
+            .andExpect(jsonPath("$.[*].password").value(hasItem(DEFAULT_MDP)))
             .andExpect(jsonPath("$.[*].login").value(hasItem(DEFAULT_LOGIN)));
     }
 }

@@ -34,10 +34,10 @@
             <thead>
             <tr>
             <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-            <th scope="col" ><span jhiTranslate="onTientLeBonBoutApp.invite.nom">Nom</span></th>
-            <th scope="col" ><span jhiTranslate="onTientLeBonBoutApp.invite.prenom">Prenom</span></th>
-            <th scope="col" ><span jhiTranslate="onTientLeBonBoutApp.invite.mail">Mail</span></th>
-            <th scope="col" ><span jhiTranslate="onTientLeBonBoutApp.invite.mdp">Mdp</span></th>
+            <th scope="col" ><span jhiTranslate="onTientLeBonBoutApp.invite.lastName">Nom</span></th>
+            <th scope="col" ><span jhiTranslate="onTientLeBonBoutApp.invite.firstName">Prenom</span></th>
+            <th scope="col" ><span jhiTranslate="onTientLeBonBoutApp.invite.email">Mail</span></th>
+            <th scope="col" ><span jhiTranslate="onTientLeBonBoutApp.invite.password">Mdp</span></th>
             <th scope="col" ><span jhiTranslate="onTientLeBonBoutApp.invite.login">Login</span></th>
             <th scope="col" ><span jhiTranslate="onTientLeBonBoutApp.invite.points">Points</span></th>
             <th scope="col" ><span jhiTranslate="onTientLeBonBoutApp.invite.questionnaire">Questionnaire</span></th>
@@ -47,10 +47,10 @@
             <tbody>
             <tr *ngFor="let invite of invites ;trackBy: trackId">
                 <td><a [routerLink]="['/invite', invite.id, 'view' ]">{{invite.id}}</a></td>
-                <td>{{invite.nom}}</td>
-                <td>{{invite.prenom}}</td>
-                <td>{{invite.mail}}</td>
-                <td>{{invite.mdp}}</td>
+                <td>{{invite.lastName}}</td>
+                <td>{{invite.firstName}}</td>
+                <td>{{invite.email}}</td>
+                <td>{{invite.password}}</td>
                 <td>{{invite.login}}</td>
                 <td>{{invite.points}}</td>
                 <td>

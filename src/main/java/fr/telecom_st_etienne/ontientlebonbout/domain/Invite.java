@@ -32,23 +32,6 @@ public class Invite extends User implements Serializable {
     @org.springframework.data.elasticsearch.annotations.Field(type = FieldType.Keyword)
     private Long id;*/
 
-    @Column(name = "nom")
-    private String nom;
-
-    @Column(name = "prenom")
-    private String prenom;
-
-    @Column(name = "mail")
-    @Email
-    private String mail;
-
-    @Column(name = "mdp")
-    //@Size(min=5, message="Le mot de passe doit contenir au minimum 5 caractères")
-    private String mdp;
-
-    @Column(name = "login")
-    private String login;
-
     @Column(name = "points")
     private Integer points;
 
@@ -68,72 +51,6 @@ public class Invite extends User implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }*/
-
-    public String getNom() {
-        return nom;
-    }
-
-    public Invite nom(String nom) {
-        this.nom = nom;
-        return this;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public Invite prenom(String prenom) {
-        this.prenom = prenom;
-        return this;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public Invite mail(String mail) {
-        this.mail = mail;
-        return this;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public String getMdp() {
-        return mdp;
-    }
-
-    public Invite mdp(String mdp) {
-        this.mdp = mdp;
-        return this;
-    }
-
-    public void setMdp(String mdp) {
-        this.mdp = mdp;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public Invite login(String login) {
-        this.login = login;
-        return this;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
     public Integer getPoints() {
         return points;
     }
@@ -205,13 +122,7 @@ public class Invite extends User implements Serializable {
     @Override
     public String toString() {
         return "Invite{" +
-            "id=" + getId() +
-            ", nom='" + getNom() + "'" +
-            ", prenom='" + getPrenom() + "'" +
-            ", mail='" + getMail() + "'" +
-            ", mdp='" + getMdp() + "'" +
-            ", login='" + getLogin() + "'" +
-            ", points=" + getPoints() +
+            "points=" + getPoints() +
             "}";
     }
 }
